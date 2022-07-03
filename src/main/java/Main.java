@@ -135,17 +135,8 @@ public class Main extends JFrame {
 
                             WebElement input = driver.findElement(By.cssSelector("#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div._13NKt.copyable-text.selectable-text"));
                             input.click();
-                            for (int i = 0; i < 100; i++) {
-                                input.sendKeys(text.getText());
-                                input.sendKeys(Keys.ENTER);
-                                new Thread(() -> {
-                                    try {
-                                        Thread.sleep(200);
-                                    } catch (InterruptedException e) {
-                                        throw new RuntimeException(e);
-                                    }
-                                });
-                            }
+                            input.sendKeys(text.getText());
+                            input.sendKeys(Keys.ENTER);
                             driver.manage().window().minimize();
                             JOptionPane.showMessageDialog(null, "Message has been sent successfully, thank you for using me.", "Whatsapp bot", JOptionPane.PLAIN_MESSAGE);
                             break;
